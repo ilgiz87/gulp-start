@@ -1,0 +1,39 @@
+#sp-header {
+  height: auto;
+
+  #sp-menu {
+    @media (min-width: 992px) {
+      .sp-column {
+        justify-content: center !important;
+      }
+
+      a {
+        font-weight: 500;
+        transition: 0.3s background-color ease;
+        &:hover {
+          background-color: var(--basic-dark-color);
+          color: var(--accent-lite-color-white);
+
+          &::before {
+            color: var(--accent-color);
+          }
+        }
+      }
+    }
+
+    .sp-dropdown {
+      .sp-dropdown-inner {
+        padding: 0;
+
+        .sp-menu-item {
+          a {
+            display: block;
+            padding: .5rem 1rem;
+            line-height: 1.4;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}

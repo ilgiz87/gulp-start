@@ -1,0 +1,19 @@
+:root {
+  --body-ff: #{$body-font-family};
+  --body-fs: #{$body-font-size};
+  --body-lh: #{$body-line-height};
+  --paragraph-mb: .75em;
+
+  /* Цветовая палитра */
+  --body-bg: #{$body-bg};
+  --body-color: #{$body-color};
+
+  /* Размеры заголвков */
+  --heading-mb: var(--paragraph-mb);
+  --h1-fs: #{$h1-font-size};
+  --h2-fs: #{$h2-font-size};
+  --h3-fs: #{$h3-font-size};
+  --h4-fs: #{$h4-font-size};
+  --h5-fs: #{$h5-font-size};
+  --h6-fs: #{$h6-font-size};
+}
