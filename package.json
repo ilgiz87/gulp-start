@@ -37,5 +37,13 @@
     "gulp-webpcss": "^1.1.1",
     "sass": "^1.77.4",
     "webpack-stream": "^7.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilgiz87/gulp-start.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ilgiz87/gulp-start/issues"
+  },
+  "homepage": "https://github.com/ilgiz87/gulp-start#readme"
 }
