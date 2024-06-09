@@ -1,6 +1,6 @@
 {
   "name": "gulp-24",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "первый тестовый Gulp",
   "main": "gulpfile.js",
   "type": "module",
