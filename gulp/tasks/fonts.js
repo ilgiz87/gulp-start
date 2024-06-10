@@ -1,8 +1,10 @@
 import fs from "fs";
 import ttf2woff2 from "gulp-ttf2woff2";
+// import ttf2woff2 from "gulp-ttftowoff2";
 
 export const ttf2woff = () => {
-    return app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`, {})
+    return app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`, { })
+    // return app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`, { encoding: false })
         .pipe(app.plugins.plumber(
             app.plugins.notify.onError({
                 title: "FONTS",
@@ -10,7 +12,8 @@ export const ttf2woff = () => {
             })
         ))
 
-        .pipe(app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`))
+        .pipe(app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`) )
+        // .pipe(app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`), { encoding: false })
         .pipe(ttf2woff2())
         .pipe(app.gulp.dest(`${app.path.build.fonts}`));
 }

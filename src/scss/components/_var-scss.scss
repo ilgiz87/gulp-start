@@ -1,11 +1,18 @@
 $font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$body-font-family: $font-sans-serif;
+$body-font-family:  "Lobster" ;
 $body-font-size: 1rem;
 $body-line-height: 1.4;
 
 // Цветовая палитра
-$body-bg: #fefefe;
-$body-color: #121212;
+$white-color: #fefefe;
+$black-color: #121212;
+$light-color: #ebf7ff;
+$primary-color: #d13030;
+$primary-darken-color: darken($primary-color, 10%);
+$primary-lighten-color: lighten($primary-color, 10%);
+$secondary-color: #ffdf3f;
+$secondary-darken-color: darken($secondary-color, 10%);
+$secondary-lighten-color: lighten($secondary-color, 10%);
 
 // Размеры заголвков 
 $h1-font-size: 3em;
@@ -14,3 +21,9 @@ $h3-font-size: 1.75em;
 $h4-font-size: 1.5em;
 $h5-font-size: 1.25em;
 $h6-font-size: 1em;
+
+
+$body-bg: $white-color;
+$body-color: $black-color;
+$container-width: 1300px;
+$container-offset: 15px;

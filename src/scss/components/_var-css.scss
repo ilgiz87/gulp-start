@@ -8,6 +8,15 @@
   --body-bg: #{$body-bg};
   --body-color: #{$body-color};
 
+  --white-color: #{$white-color};
+  --black-color: #{$black-color};
+  --light-color: #{$light-color};
+  --primary-color: #{$primary-color};
+  --primary-darken-color: $primary-darken-color;
+  --primary-lighten-color:$primary-lighten-color;
+  --secondary-color: #{$secondary-color};
+   --secondary-darken-color: $secondary-darken-color;
+  --secondary-lighten-color:$secondary-lighten-color;
   /* Размеры заголвков */
   --heading-mb: var(--paragraph-mb);
   --h1-fs: #{$h1-font-size};
@@ -16,4 +25,7 @@
   --h4-fs: #{$h4-font-size};
   --h5-fs: #{$h5-font-size};
   --h6-fs: #{$h6-font-size};
+
+  --container-offset: 15px;
+  --container-width: #{$container-width + $container-offset};
 }
