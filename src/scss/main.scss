@@ -1,7 +1,11 @@
-@import "./components/fonts";
-@import "./components/var-scss";
-@import "./components/var-css";
-@import "./components/reset";
-@import "./components/global";
+@import "./components/functions",
+        "./components/mixins",
+        "./components/fonts",
+        "./components/var-scss",
+        "./components/var-css",
+        "./components/reset",
+        "./components/global",
+        "./components/utils";
+
 
 @import "./blocks/header";

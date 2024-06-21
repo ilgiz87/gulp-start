@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "gulp",
     "build": "gulp build --build",
-    "svgSprite": "gulp svgSprite"
+    "svgSprite": "gulp svgSprite",
+    "fontsSCSS": "gulp fontsSCSS"
   },
   "author": "ilgiz-87",
   "license": "GPL-3.0",
@@ -37,6 +38,7 @@
     "gulp-webp-html-nosvg": "^1.1.1",
     "gulp-webpcss": "^1.1.1",
     "sass": "^1.77.4",
+    "webp-converter": "^2.2.3",
     "webpack-stream": "^7.0.0"
   },
   "repository": {

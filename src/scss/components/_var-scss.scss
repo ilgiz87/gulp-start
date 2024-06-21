@@ -1,29 +1,46 @@
-$font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$body-font-family:  "Lobster" ;
-$body-font-size: 1rem;
-$body-line-height: 1.4;
+$baseFs: 16px;
+$viewport-max: 1440px;
+$viewport-min: 360px;
+$container-width: 1300px;
+$container-offset: 16px;
 
 // Цветовая палитра
 $white-color: #fefefe;
 $black-color: #121212;
 $light-color: #ebf7ff;
 $primary-color: #d13030;
-$primary-darken-color: darken($primary-color, 10%);
-$primary-lighten-color: lighten($primary-color, 10%);
 $secondary-color: #ffdf3f;
-$secondary-darken-color: darken($secondary-color, 10%);
-$secondary-lighten-color: lighten($secondary-color, 10%);
-
-// Размеры заголвков 
-$h1-font-size: 3em;
-$h2-font-size: 2.25em;
-$h3-font-size: 1.75em;
-$h4-font-size: 1.5em;
-$h5-font-size: 1.25em;
-$h6-font-size: 1em;
 
 
-$body-bg: $white-color;
-$body-color: $black-color;
-$container-width: 1300px;
-$container-offset: 15px;
+// Типографика
+$font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+  Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$body-font-family: "TildaSans";
+$body-font-size: 16;
+$body-line-height: 1.4;
+$paragraph-mb: .75em;
+
+$heading-ff: inherit;
+$heading-fw: 700;
+$heading-mb: .75em;
+
+$h1-font-size-max: 48px;
+$h1-font-size-min: 30px;
+
+$h2-font-size-max: 36px;
+$h2-font-size-min: 26px;
+
+$h3-font-size-max: 28px;
+$h3-font-size-min: 20px;
+
+$h4-font-size-max: 24px;
+$h4-font-size-min: 22px;
+
+$h5-font-size-max: 20px;
+$h5-font-size-min: 18px;
+
+$h6-font-size-max: 18px;
+$h6-font-size-min: 16px;
+
+

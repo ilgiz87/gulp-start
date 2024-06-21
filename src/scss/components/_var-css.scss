@@ -1,31 +1,39 @@
 :root {
-  --body-ff: #{$body-font-family};
-  --body-fs: #{$body-font-size};
-  --body-lh: #{$body-line-height};
-  --paragraph-mb: .75em;
+  --container-offset: #{toRem($container-offset)};
+  --container-width: #{toRem($container-width + $container-offset * 2)};
+  --column-gap: var(--container-offset);
 
-  /* Цветовая палитра */
-  --body-bg: #{$body-bg};
-  --body-color: #{$body-color};
+  // Типографика
+  --body-ff: "#{$body-font-family}",#{$font-sans-serif};
+  --body-fs: #{toRem($body-font-size)};
+  --body-lh: #{$body-line-height};
+  --paragraph-mb: #{$paragraph-mb};
+
+  --heading-ff: #{$heading-ff};
+  --heading-fw: #{$heading-fw};
+  --heading-mb: var(--paragraph-mb);
+    --h1-fs: #{clamp1($h1-font-size-max, $h1-font-size-min)};
+  --h2-fs: #{clamp1($h2-font-size-max, $h2-font-size-min)};
+  --h3-fs: #{clamp1($h3-font-size-max, $h3-font-size-min)};
+  --h4-fs: #{clamp1($h4-font-size-max, $h4-font-size-min)};
+  --h5-fs: #{clamp1($h5-font-size-max, $h5-font-size-min)};
+  --h6-fs: #{clamp1($h6-font-size-max, $h6-font-size-min)};
+
+  // Цветовая палитра
+  --body-bg: #{$white-color};
+  --body-color: #{$black-color};
 
   --white-color: #{$white-color};
   --black-color: #{$black-color};
   --light-color: #{$light-color};
   --primary-color: #{$primary-color};
-  --primary-darken-color: $primary-darken-color;
-  --primary-lighten-color:$primary-lighten-color;
+  --primary-darken-color: #{darken($primary-color, 10%)};
+  --primary-lighten-color: #{lighten($primary-color, 10%)};
   --secondary-color: #{$secondary-color};
-   --secondary-darken-color: $secondary-darken-color;
-  --secondary-lighten-color:$secondary-lighten-color;
-  /* Размеры заголвков */
-  --heading-mb: var(--paragraph-mb);
-  --h1-fs: #{$h1-font-size};
-  --h2-fs: #{$h2-font-size};
-  --h3-fs: #{$h3-font-size};
-  --h4-fs: #{$h4-font-size};
-  --h5-fs: #{$h5-font-size};
-  --h6-fs: #{$h6-font-size};
+  --secondary-darken-color: #{darken($secondary-color, 10%)};
+  --secondary-lighten-color: #{lighten($secondary-color, 10%)};
 
-  --container-offset: 15px;
-  --container-width: #{$container-width + $container-offset};
+
+
+
 }

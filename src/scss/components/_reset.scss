@@ -27,26 +27,16 @@ html,
   padding-left: 0;
 }
 
-
 // Убираем внешние отступы body и двум другим тегам,
-// у которых есть атрибут class 
+// у которых есть атрибут class
 body,
 :where(blockquote, figure):where([class]) {
   margin: 0;
 }
 
 //  Убираем внешние отступы вертикали нужным тегам,  у которых есть атрибут class
-:where(h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol,
-  dl):where([class]) {
-    margin-block: 0;
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
 }
 
 :where(dd[class]) {
@@ -80,11 +70,12 @@ p {
 }
 
 //  Упрощаем работу с изображениями
-img {
+img,
+svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
-
 
 //  Наследуем свойства шрифт для полей ввода
 input,
@@ -94,14 +85,14 @@ button {
   font: inherit;
 }
 
-// Приводим к единому цвету svg-элементы 
+// Приводим к единому цвету svg-элементы
 svg {
   *[fill] {
-    fill: currentColor
+    fill: currentColor;
   }
 
   *[stroke] {
-    stroke: currentColor
+    stroke: currentColor;
   }
 
   * {

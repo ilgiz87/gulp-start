@@ -1,7 +1,42 @@
 @font-face{
- font-family: "Lobster";
+ font-family: "TildaSans";
   font-display: swap;
-  src: url("../fonts/Lobster-Regular.woff2") format("woff2");
+  src: url("../fonts/TildaSans-Black.woff2") format("woff2");
+ font-weight: 900; 
+ } 
+ 
+@font-face{
+ font-family: "TildaSans";
+  font-display: swap;
+  src: url("../fonts/TildaSans-Bold.woff2") format("woff2");
+ font-weight: 700; 
+ } 
+ 
+@font-face{
+ font-family: "TildaSans";
+  font-display: swap;
+  src: url("../fonts/TildaSans-ExtraBold.woff2") format("woff2");
+ font-weight: 800; 
+ } 
+ 
+@font-face{
+ font-family: "TildaSans";
+  font-display: swap;
+  src: url("../fonts/TildaSans-Medium.woff2") format("woff2");
+ font-weight: 500; 
+ } 
+ 
+@font-face{
+ font-family: "TildaSans";
+  font-display: swap;
+  src: url("../fonts/TildaSans-Regular.woff2") format("woff2");
  font-weight: 400; 
+ } 
+ 
+@font-face{
+ font-family: "TildaSans";
+  font-display: swap;
+  src: url("../fonts/TildaSans-Semibold.woff2") format("woff2");
+ font-weight: 600; 
  } 
  
