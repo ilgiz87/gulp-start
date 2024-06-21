@@ -29,6 +29,7 @@ git clone {$this_repo}
 
 - Отключил конвертацию TTF в WOFF2
 - Оставил генерацию SCSS для шрифтов
+
 **Инструкция**
 1. В папку src/fonts закидываем файлы шрифтов в формате WOFF2
 2. Удаляем src\scss\components\_fonts.scss
