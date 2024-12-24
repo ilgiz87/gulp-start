@@ -1,7 +1,0 @@
-.header_list {
-  @include grid(6);
-  @include fluid-text(36,16)
-}
-.qwert{
-  font-size: clamp1(36, 16);
-}

@@ -1,52 +1,32 @@
 {
-  "name": "gulp-24",
-  "version": "0.2.0",
-  "description": "первый тестовый Gulp",
-  "main": "gulpfile.js",
-  "type": "module",
+  "name": "frontend_case",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "gulp",
-    "build": "gulp build --build",
-    "svgSprite": "gulp svgSprite",
-    "fontsSCSS": "gulp fontsSCSS"
+    "start": "gulp",
+    "build": "gulp build",
+    "convert": "gulp images && gulp fonts"
   },
-  "author": "ilgiz-87",
-  "license": "GPL-3.0",
+  "keywords": [],
+  "author": "frontend_case",
+  "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^3.0.2",
-    "del": "^7.1.0",
-    "fs": "^0.0.1-security",
-    "gulp": "^5.0.0",
-    "gulp-autoprefixer": "^9.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-file-include": "^2.3.0",
-    "gulp-fonter": "^0.3.0",
-    "gulp-group-css-media-queries": "^1.2.2",
-    "gulp-if": "^3.0.0",
-    "gulp-imagemin": "^7.1.0",
+    "browser-sync": "^2.29.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-changed": "^4.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-include": "^2.4.1",
     "gulp-newer": "^1.4.0",
-    "gulp-notify": "^4.0.0",
-    "gulp-plumber": "^1.2.1",
     "gulp-rename": "^2.0.0",
-    "gulp-replace": "^1.1.4",
+    "gulp-rigger": "^0.5.8",
     "gulp-sass": "^5.1.0",
-    "gulp-svg-sprite": "^2.0.3",
     "gulp-ttf2woff2": "^4.0.1",
-    "gulp-ttftowoff2": "^1.0.1",
-    "gulp-version-number": "^0.2.4",
-    "gulp-webp": "^5.0.0",
-    "gulp-webp-html-nosvg": "^1.1.1",
-    "gulp-webpcss": "^1.1.1",
-    "sass": "^1.77.4",
-    "webp-converter": "^2.2.3",
-    "webpack-stream": "^7.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ilgiz87/gulp-start.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ilgiz87/gulp-start/issues"
-  },
-  "homepage": "https://github.com/ilgiz87/gulp-start#readme"
+    "gulp-uglify-es": "^3.0.0",
+    "gulp-webp": "^4.0.1",
+    "sass": "^1.59.3",
+    "swiper": "^9.1.1"
+  }
 }
