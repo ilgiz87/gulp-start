@@ -1,65 +1,108 @@
-// Основной модуль
-import gulp from "gulp";
-// Импорт путей
-import { path } from "./gulp/config/path.js";
-// Импорт общих плагинов
-import { plugins } from "./gulp/config/plugins.js";
+const {src, dest, watch, parallel, series} = require('gulp');
 
-// Передаем значения в глобальную переменную
-global.app = {
-  isBuild: process.argv.includes('--build'),
-  isDev: !process.argv.includes('--build'),
-  gulp: gulp,
-  path: path,
-  plugins: plugins
-}
-// Импорт задач 
-// import { copy } from "./gulp/tasks/copy.js";
-import { reset } from "./gulp/tasks/reset.js";
-import { html } from "./gulp/tasks/html.js";
-import { server } from "./gulp/tasks/server.js";
-import { scss } from "./gulp/tasks/scss.js";
-import { scripts } from "./gulp/tasks/scripts.js";
-import { images } from "./gulp/tasks/images.js";
-import { ttf2woff, fontsSCSS } from "./gulp/tasks/fonts.js";
-import { svgSprite } from "./gulp/tasks/svgSprite.js";
-import { copyFonts } from "./gulp/tasks/copy.js"
+const scss = require('gulp-sass')(require('sass'));
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify-es').default;
+const browserSync = require('browser-sync').create();
+const autoprefixer = require('gulp-autoprefixer');
+const webp = require('gulp-webp');
+const newer = require('gulp-newer');
+const ttf2woff2 = require('gulp-ttf2woff2');
+const include = require('gulp-include');
+const rigger = require('gulp-rigger');
+const rename = require('gulp-rename');
+const htmlmin = require('gulp-htmlmin');
+const changed = require('gulp-changed');
 
 
-
-// конвертация и подключение шрифтов
-const fonts = gulp.series(ttf2woff, fontsSCSS);
-
-
-// Наблюдатель за изменениями
-function watcher() {
-  // gulp.watch(path.watch.files, copy);
-  gulp.watch(path.watch.html, html);
-  gulp.watch(path.watch.scss, scss);
-  gulp.watch(path.watch.js, scripts);
-  gulp.watch(path.watch.images, images);
-  // gulp.watch(path.watch.fonts, fonts);
+function images() {
+    return src('app/images/accomodate/**/*.*')
+        .pipe(newer('app/images'))
+        .pipe(webp())
+        .pipe(dest('app/images'))
 }
 
+function fonts() {
+    return src('app/fonts/accomodate/**/*.*')
+        .pipe(changed('app/fonts', { extension: '.woff2' }))
+        .pipe(ttf2woff2())
+        .pipe(dest('app/fonts'))
+}
+
+function pages() {
+    return src('app/**/*.dev.html')
+        .pipe(include({
+            includePaths: 'app/layouts/'
+        }))
+        .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(rename(function (path) {
+            path.basename = path.basename.replace(".dev", "");
+            path.extname = ".html";
+        }))
+        .pipe(dest('app'))
+        .pipe(browserSync.stream())
+}
+
+function styles() {
+    return src('app/scss/*.scss')
+        .pipe(autoprefixer({overrideBrowserslist: ['last 10 version']}))
+        .pipe(rename({
+            suffix: ".min",
+            extname: ".css"
+        }))
+        .pipe(scss({outputStyle: 'compressed'}))
+        .pipe(dest('app/css'))
+        .pipe(browserSync.stream())
+}
+
+function scripts() {
+    return src('app/js/accomodate/**/*.js')
+        .pipe(rigger())
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: ".min",
+            extname: ".js"
+        }))
+        .pipe(dest('app/js'))
+        .pipe(browserSync.stream());
+}
+
+function watching() {
+    browserSync.init({
+        server: {
+            baseDir: "app/"
+        }
+    });
+    watch(['app/images/accomodate/**/*.*'], images)
+    watch(['app/fonts/accomodate/**/*.*'], fonts)
+    watch(['app/layouts/**/*.html', 'app/**/*.dev.html'], pages)
+    watch(['app/scss/**/*.scss'], styles)
+    watch(['app/js/accomodate/**/*.js', 'app/js/components/**/*.js'], scripts).on('change', browserSync.reload)
+}
+
+function building() {
+    return src([
+        'app/images/**/*.*',
+        '!app/images/accomodate/**/*.*',
+        'app/fonts/**/*.*',
+        '!app/fonts/accomodate/**/*.*',
+        'app/**/*.html',
+        '!app/**/*.dev.html',
+        '!app/layouts/**/*.*',
+        'app/css/**/*.css',
+        'app/js/**/*.min.js',
+    ], {base : 'app'})
+        .pipe(dest('dist'))
+}
 
 
+exports.styles = styles;
+exports.images = images;
+exports.fonts = fonts;
+exports.pages = pages;
+exports.building = building;
+exports.scripts = scripts;
+exports.watching = watching;
 
-// Базовая операция
-const mainTasks = gulp.series(fontsSCSS, copyFonts, gulp.parallel(/* copy, */  html, scss, scripts, images, svgSprite));
-// const mainTasks =  gulp.parallel(/* copy, */ fonts, html, scss, scripts, images, svgSprite);
-// построение сценариев выполнения задач
-const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
-const build = gulp.series(reset, mainTasks);
-// const fontsSCSS = gulp.series(fontsSCSS);
-
-
-export { svgSprite }
-export { build }
-export { dev }
-export { fontsSCSS }
-
-
-//Выполнение сценария по умолчанию
-gulp.task('default', dev);
-
-
+exports.build = series(images, fonts, scripts, styles, pages, building);
+exports.default = parallel(styles, fonts, images, scripts, pages, watching);
